@@ -72,10 +72,11 @@ script:
   #we build 3 times due to issues with the maven-android-plugin. root cause is unknown but seems to be related to how artifacts are resolved for android projects
   #in case you're wondering -fn means fail never, which loosely means, if the build fails, the exit code is always 0, which is basically all CI engines look for.
   - mvn clean install -Pcore -fn
-  - mvn install -Pcore -fn
-  - mvn install -Pcore
+  - mvn install -fn
+  # this is the 'record run'
+  - mvn install 
   - mvn android:undeploy
   #build using gradle
   - gradle clean build connectedCheck
-  # fun fact, maven runs android tests concurrently for all connected devices, gradle does not
+  # fun fact, maven runs android tests concurrently on all connected devices, gradle does not and runs them 1 device at a time
   # since we're using build matrix, each build target compiles the source, fires up it's specific vm, runs the tests, then exits.
