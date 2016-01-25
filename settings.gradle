@@ -1,6 +1,11 @@
 rootProject.name = 'osmdroid-parent'
+
+//AAR libraries
 include ':osmdroid-android'
-include ':osmdroid-third-party'
+include ':osmdroid-third-party-bing'
+include ':osmdroid-third-party-gms'
+
+//example apps
+include ':OpenStreetMapViewer3rdParty'
 include ':OpenStreetMapViewer'
 include ':OSMMapTilePackager'
-include ':GoogleWrapperSample'

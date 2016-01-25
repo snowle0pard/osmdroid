@@ -200,9 +200,10 @@
 	      </activation>
 	       <modules>
 		    <module>osmdroid-android</module>
-		    <module>osmdroid-third-party</module>
+		    <module>osmdroid-third-party-gms</module>
+            <module>osmdroid-third-party-bing</module>
 		    <module>OpenStreetMapViewer</module>
-		    <module>GoogleWrapperSample</module>
+		    <module>OpenStreetMapViewer3rdParty</module>
 		    <module>OSMMapTilePackager</module>
 		    <module>osmdroid-android-it</module>
 		</modules>

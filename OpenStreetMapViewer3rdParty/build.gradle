@@ -1,13 +1,16 @@
+
+description = 'OSMdroid 3rd Party example App'
+
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
+    compileSdkVersion "Google Inc.:Google APIs:23"
     buildToolsVersion "23.0.2"
     defaultConfig {
-        applicationId 'org.osmdroid'
-        minSdkVersion 8
+        applicationId 'org.osmdroid.google.sample'
+        minSdkVersion 9
         targetSdkVersion 23
-        versionCode 19
+        versionCode 18
         versionName "5.2-SNAPSHOT"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -30,20 +33,17 @@ android {
 
 dependencies {
     compile 'com.android.support:support-v4:23+'
+    compile 'com.android.support:appcompat-v7:23.1.1'
     compile project(':osmdroid-android')
-    androidTestCompile 'com.android.support:support-annotations:23+'
-    androidTestCompile 'com.android.support.test:runner:0.4.+'
-    androidTestCompile 'com.android.support.test:rules:0.4.+'
-    //compile 'org.osmdroid:osmdroid-third-party:5.0-SNAPSHOT'
-}
+    compile project(':osmdroid-third-party-gms')
+    compile project(':osmdroid-third-party-bing')
+    compile 'com.google.android.gms:play-services:8.+'
+    compile 'com.google.android.gms:play-services-maps:8.+'
 
 
-//copy the instrumentation tests from the maven osmdroid-android-it src folder
-task copyTestClasses(type: Copy) {
-    description 'Copies the osmdroid-android-it maven test classes to androidTest folder.'
-    from ("${rootDir}/osmdroid-android-it/src/main/java")
-    into "./src/androidTest/java"
+    //androidTestCompile 'com.android.support:support-annotations:23+'
+    //androidTestCompile 'com.android.support.test:runner:0.4.+'
+    //androidTestCompile 'com.android.support.test:rules:0.4.+'
 
 }
 
-preBuild.dependsOn copyTestClasses
